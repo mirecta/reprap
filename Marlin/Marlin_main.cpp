@@ -119,6 +119,8 @@
 // M109 - Sxxx Wait for extruder current temp to reach target temp. Waits only when heating
 //        Rxxx Wait for extruder current temp to reach target temp. Waits when heating and cooling
 //        IF AUTOTEMP is enabled, S<mintemp> B<maxtemp> F<factor>. Exit autotemp by any M109 without F
+// M110 - Cooler Fan on 
+// M111 - Cooler Fan off
 // M112 - Emergency stop
 // M114 - Output current position to serial port
 // M115 - Capabilities string
@@ -2047,6 +2049,16 @@ void process_commands()
         fanSpeed = 0;
         break;
     #endif //FAN_PIN
+    #if defined(COOL_FAN_PIN) && COOL_FAN_PIN > -1
+      case 110: //M110 Fan On
+        digitalWrite(COOL_FAN_PIN,1);
+        break;
+      case 111: //M111 Fan Off
+        digitalWrite(COOL_FAN_PIN,0);
+        break;
+    #endif //COOL_FAN_PIN
+
+
     #ifdef BARICUDA
       // PWM for HEATER_1_PIN
       #if defined(HEATER_1_PIN) && HEATER_1_PIN > -1

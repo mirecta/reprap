@@ -461,7 +461,7 @@
 * Arduino Mega pin assignment
 *
 ****************************************************************************************/
-#if MOTHERBOARD == 3 || MOTHERBOARD == 33 || MOTHERBOARD == 34 || MOTHERBOARD == 35 || MOTHERBOARD == 77 || MOTHERBOARD == 67 || MOTHERBOARD == 68
+#if MOTHERBOARD == 3 || MOTHERBOARD == 33 || MOTHERBOARD == 34 || MOTHERBOARD == 35  || MOTHERBOARD == 36 || MOTHERBOARD == 77 || MOTHERBOARD == 67 || MOTHERBOARD == 68
 #define KNOWN_BOARD 1
 
 //////////////////FIX THIS//////////////
@@ -477,7 +477,7 @@
 // #define RAMPS_V_1_0
 
 
-#if MOTHERBOARD == 33 || MOTHERBOARD == 34 || MOTHERBOARD == 35 || MOTHERBOARD == 77 || MOTHERBOARD == 67 || MOTHERBOARD == 68
+#if MOTHERBOARD == 33 || MOTHERBOARD == 34 || MOTHERBOARD == 35 || MOTHERBOARD == 36 || MOTHERBOARD == 77 || MOTHERBOARD == 67 || MOTHERBOARD == 68
 
   #define LARGE_FLASH true
 
@@ -583,6 +583,14 @@
     #define FAN_PIN            4 // IO pin. Buffer needed
   #endif
 
+
+  #if MOTHERBOARD == 36
+    #define FAN_PIN            45  //Pin used for the fan to cool controller
+    #define COOL_FAN_PIN       47  //fan and light
+  #else
+    #define COOL_FAN_PIN       -1
+  #endif
+
   #if MOTHERBOARD == 77
     #define FAN_PIN            8
   #endif
@@ -590,7 +598,9 @@
   #if MOTHERBOARD == 35
     #define CONTROLLERFAN_PIN  -1 //Pin used for the fan to cool controller
   #endif
+  
 
+  
   #define PS_ON_PIN          12
 
   #if defined(REPRAP_DISCOUNT_SMART_CONTROLLER) || defined(G3D_PANEL)
