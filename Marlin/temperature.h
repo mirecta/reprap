@@ -97,7 +97,14 @@ FORCE_INLINE float degTargetBed() {
 };
 
 FORCE_INLINE void setTargetHotend(const float &celsius, uint8_t extruder) {  
-  target_temperature[extruder] = celsius;
+    //automatic hotend sink cooling
+    if(celsius > 30)
+        digitalWrite(COOL_FAN_PIN,1);
+
+    if(celsius <= 30)
+        digitalWrite(COOL_FAN_PIN,0);
+
+    target_temperature[extruder] = celsius;
 };
 
 FORCE_INLINE void setTargetBed(const float &celsius) {  
