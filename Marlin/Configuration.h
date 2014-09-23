@@ -42,7 +42,6 @@
 // 33 = RAMPS 1.3 / 1.4 (Power outputs: Extruder, Fan, Bed)
 // 34 = RAMPS 1.3 / 1.4 (Power outputs: Extruder0, Extruder1, Bed)
 // 35 = RAMPS 1.3 / 1.4 (Power outputs: Extruder, Fan, Fan)
-// 36 = RAMPS 1.3 / 1.4 (Power outputs: Extruder0, Extruder1, Bed) + Miro expander 45 filament fan 47 cooler fan
 // 4  = Duemilanove w/ ATMega328P pin assignment
 // 5  = Gen6
 // 51 = Gen6 deluxe
@@ -75,7 +74,7 @@
 // 88 = 5DPrint D8 Driver Board
 
 #ifndef MOTHERBOARD
-#define MOTHERBOARD 36
+#define MOTHERBOARD 33
 #endif
 
 // Define this to set a custom name for your generic Mendel,
