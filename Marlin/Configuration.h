@@ -282,6 +282,8 @@
 #endif
 
 // The pullups are needed if you directly connect a mechanical endswitch between the signal and ground pins.
+// NC = true opto
+// NO = false microswitch
 const bool X_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
 const bool Y_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
 const bool Z_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
@@ -444,8 +446,8 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 
 // default settings
 
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80,4000,1150}  // default steps per unit for Ultimaker (200deg*16microstep/2pitch*20teeth),  200deg*16microstep/0.8 M5rod, 200deg*16microstep/pi*6diameter
-#define DEFAULT_MAX_FEEDRATE          {300, 300, 3, 25}    // (mm/sec)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80,4000,559}  // default steps per unit for Ultimaker (200deg*16microstep/2pitch*20teeth),  200deg*16microstep/0.8 M5rod, 200deg*16microstep/pi*6diameter (200*16 * 49/15)/(pi*6.5)
+#define DEFAULT_MAX_FEEDRATE          {300, 300, 3, 50}    // (mm/sec)
 #define DEFAULT_MAX_ACCELERATION      {1000,1000,30,300}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
 
 #define DEFAULT_ACCELERATION          3000 // X, Y, Z and E max acceleration in mm/s^2 for printing moves
